@@ -4,8 +4,7 @@
   "metadata": {
     "colab": {
       "provenance": [],
-      "gpuType": "T4",
-      "include_colab_link": true
+      "gpuType": "T4"
     },
     "kernelspec": {
       "name": "python3",
