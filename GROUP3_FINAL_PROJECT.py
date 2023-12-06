@@ -117,7 +117,6 @@
       "metadata": {
         "id": "S040Nj9jY0Kf"
       },
-      "execution_count": null,
       "outputs": []
     },
     {
