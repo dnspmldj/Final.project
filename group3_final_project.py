@@ -60,6 +60,8 @@ def run_example(filename):
     print('Bag')
   else:
     print('Ankle Boot')
-
+    
+ string="OUTPUT : "+result[np.argmax(prediction)]
+ st.success(string)
 
 
