@@ -125,7 +125,7 @@ def load_image(filename):
 
 def run_example(filename):
   img = load_image(filename)
-  model = load_model('/content/drive/MyDrive/Models/saved_fashion.h5')
+  model=tf.keras.models.load_model('saved_fashion.h5')
   result = np.argmax(model.predict(img), axis=1)
   if result == 0:
     print('Tshirt')
