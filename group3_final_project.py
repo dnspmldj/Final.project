@@ -46,64 +46,6 @@ st.image(image,use_column_width=True)
 
 st.success(string)
 
-def summarize_diagnostics(history):
-	# plot loss
-	pyplot.figure(figsize=(16,10))
-	pyplot.subplot(211)
-	pyplot.title('Cross Entropy Loss')
-	pyplot.plot(history.history['loss'], color='blue', label='train')
-	pyplot.plot(history.history['val_loss'], color='orange', label='test')
-	# plot accuracy
-	pyplot.subplot(212)
-	pyplot.title('Classification Accuracy')
-	pyplot.plot(history.history['accuracy'], color='blue', label='train')
-	pyplot.plot(history.history['val_accuracy'], color='orange', label='test')
-
-# define cnn model
-def define_model_3():
-	model3 = Sequential()
-	model3.add(Conv2D(32, (3, 3), activation='relu', padding='same', input_shape=input_shape))
-	model3.add(BatchNormalization())
-	model3.add(Conv2D(32, (3, 3), activation='relu', padding='same'))
-	model3.add(BatchNormalization())
-	model3.add(MaxPooling2D((2, 2)))
-	model3.add(Dropout(0.25))
-
-	model3.add(Conv2D(64, (3, 3), activation='relu', padding='same'))
-	model3.add(BatchNormalization())
-	model3.add(Conv2D(64, (3, 3), activation='relu', padding='same'))
-	model3.add(BatchNormalization())
-	model3.add(MaxPooling2D((2, 2)))
-	model3.add(Dropout(0.25))
-
-	model3.add(Conv2D(128, (3, 3), activation='relu', padding='same'))
-	model3.add(BatchNormalization())
-	model3.add(Conv2D(128, (3, 3), activation='relu', padding='same'))
-	model3.add(BatchNormalization())
-	model3.add(MaxPooling2D((2, 2)))
-	model3.add(Dropout(0.25))
-
-	model3.add(Conv2D(256, (3, 3), activation='relu', padding='same'))
-	model3.add(BatchNormalization())
-	model3.add(Conv2D(256, (3, 3), activation='relu', padding='same'))
-	model3.add(BatchNormalization())
-	model3.add(MaxPooling2D((2, 2)))
-	model3.add(Dropout(0.25))
-
-
-
-	model3.add(Flatten())
-	model3.add(Dropout(0.25))
-	model3.add(Dense(512, activation='relu'))
-	model3.add(Dropout(0.25))
-	model3.add(Dense(128, activation='relu'))
-	model3.add(Dropout(0.25))
-	model3.add(Dense(10, activation='softmax'))
-
-
-	model3.compile(optimizer='adam', loss='categorical_crossentropy', metrics=['accuracy'])
-	return model3
-
 
 
 from tensorflow.keras.preprocessing.image import load_img
