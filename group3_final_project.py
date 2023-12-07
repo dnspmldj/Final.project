@@ -25,8 +25,6 @@ st.write("""# Fasion""")
 file=st.file_uploader("Choose clothes photo from computer",type=["jpg","png"])
 
 
-st.success(string)
-
 
 
 from tensorflow.keras.preprocessing.image import load_img
