@@ -62,6 +62,5 @@ def run_example(filename):
     print('Ankle Boot')
     
  string="OUTPUT : "+result[np.argmax(prediction)]
- st.success(string)
 
-
+st.success(string)
