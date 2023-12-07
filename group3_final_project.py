@@ -19,7 +19,7 @@ def import_and_predict(image_data,model):
     img_reshape=img[np.newaxis,...]
     prediction=model.predict(img_reshape)
     return prediction
-st.image(image,use_column_width=True)
+
 st.write("""# Fasion""")
 
 file=st.file_uploader("Choose clothes photo from computer",type=["jpg","png"])
