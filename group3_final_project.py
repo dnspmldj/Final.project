@@ -24,14 +24,6 @@ st.write("""# Fasion""")
 
 file=st.file_uploader("Choose clothes photo from computer",type=["jpg","png"])
 
-
-
-
-from tensorflow.keras.preprocessing.image import load_img
-from tensorflow.keras.preprocessing.image import img_to_array
-from keras.models import load_model
-
-# load and prepare the image
 def load_image(filename):
   img = Image.open(filename).resize((224, 224))
   plt.imshow(img)
