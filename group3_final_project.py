@@ -1,7 +1,6 @@
 import streamlit as st
 import time
 import sys
-from matplotlib import pyplot
 import pandas as pd
 from PIL import Image
 from numpy import mean
