@@ -63,7 +63,7 @@
       },
       "outputs": [],
       "source": [
-        "import streamlit as st",
+        "import streamlit as st\n",
         "import time\n",
         "import numpy as np\n",
         "import sys\n",
