@@ -15,7 +15,7 @@ import numpy as np
 def import_and_predict(image_data,model):
     size=(64,64)
     image=ImageOps.fit(image_data,size,Image.ANTIALIAS)
-    img=np.asarray(image)
+    img=np.asarray(Image)
     img_reshape=img[np.newaxis,...]
     prediction=model.predict(img_reshape)
     return prediction
