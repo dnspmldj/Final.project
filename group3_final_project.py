@@ -6,7 +6,6 @@ from PIL import Image
 from numpy import mean
 from numpy import std
 from numpy import argmax
-from matplotlib import pyplot as plt
 from sklearn.model_selection import KFold
 from keras.preprocessing.image import ImageDataGenerator
 from keras.models import Sequential
