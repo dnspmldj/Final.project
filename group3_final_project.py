@@ -91,47 +91,6 @@ def summarize_diagnostics(history):
 	pyplot.plot(history.history['accuracy'], color='blue', label='train')
 	pyplot.plot(history.history['val_accuracy'], color='orange', label='test')
 
-"""### **This function plots the loss and accuracy later on after the training is done.**
-
-## **Performing and Saving Augmentation, Utilizing Test Harness**
-"""
-
-shift_fraction = 0.005
-
-def run_test_harness(model_x, epochs):
-  trainX, valX, testX, trainY, valY, testY = prep_pixels(train_X, val_X, test_X, train_Y, val_Y, test_Y)
-  model = model_x
-  model.summary()
-
-  #Image Augmentation
-  datagen = ImageDataGenerator(width_shift_range=shift_fraction,height_shift_range=shift_fraction,horizontal_flip=True)
-
-  it_train = datagen.flow(trainX, trainY, batch_size=batch_size)
-	# prepare iterator
-  it_val = datagen.flow(valX, valY, batch_size=batch_size)
-  # fit model
-  steps = int(trainX.shape[0] / batch_size)
-  history = model.fit_generator(it_train, steps_per_epoch=steps, epochs=epochs, validation_data=it_val, verbose=1)
-  # evaluate model
-  _, acc = model.evaluate(testX, testY, verbose=1)
-  print('Accuracy:')
-  print('> %.3f' % (acc * 100.0))
-  # learning curves
-  summarize_diagnostics(history)
-
-"""**For this part the train, test, and validation data are feed into data generator, which makes it easier for the sets to be preprocessed and then trained later on.**
-
-**The ImageDataGenerator() function is used where the augmentation is done. Featurewise Standardization, ZCA Whitening, Shift Range, and Flips where used.**
-
-**Afterwards a batch of augmented images were saved in local Google drive.**
-
-**The run_test_harness() contains the entire functions needed for training where it only needs to take the model name and it will automatically call the other tasks needed for this activity.**
-
-## **THIRD BASELINE MODEL**
-"""
-
-from tensorflow.keras.callbacks import EarlyStopping
-
 # define cnn model
 def define_model_3():
 	model3 = Sequential()
@@ -241,13 +200,5 @@ def run_example(filename):
   else:
     print('Ankle Boot')
 
-run_example('/content/drive/MyDrive/Colab Notebooks/newimages/charlie.jpg')
-
-"""## **CONCLUSION:** <BR>
-### Doroteo:
-**This project demonstrated the value of CNN in picture categorization because it employs a distinct technique from densenet. Because of its practicality and doability, it is currently frequently employed in the AI business. In this exercise, a model that can identify the type of fashion item supplied as input is trained using the fashion MNIST. A good performance, with a validation accuracy of 94%, was shown in the results. To further increase the capabilities of the model, various techniques are used, including batch normalization, dropout, and picture augmentation.**
 
 
-###
-
-"""
