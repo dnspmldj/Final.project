@@ -24,7 +24,6 @@ Original file is located at
 
 import streamlit as st
 import time
-import cv2
 from PIL import Image,ImageOps
 import numpy as np
 import sys
@@ -75,65 +74,6 @@ st.success(string)
 
 ## **IMPORTING CSV FILE**
 """
-
-train_dataset = pd.read_csv("/content/drive/MyDrive/Colab Notebooks/fashion-mnist_train.csv")
-test_dataset = pd.read_csv("/content/drive/MyDrive/Colab Notebooks/fashion-mnist_test.csv")
-
-train_dataset.shape
-
-test_dataset.shape
-
-train_dataset.head()
-
-"""## **FORMATTING THE TRAIN AND TEST SETS**"""
-
-img_rows, img_cols = 28, 28
-input_shape = (img_rows, img_cols, 1)
-
-#separate x and y and convert to array
-
-#train dataset
-train_datasetX = np.array(train_dataset.iloc[:, 1:])
-train_datasetY = np.array(train_dataset.iloc[:, 0])
-
-#test dataset
-test_X = np.array(test_dataset.iloc[:, 1:])
-test_Y = np.array(test_dataset.iloc[:, 0])
-
-#one hot encoding to the y variables of train and test data
-train_datasetY = to_categorical(train_datasetY)
-test_Y = to_categorical(test_Y)
-
-batch_size = 64
-num_classes = test_Y.shape[1]
-
-#split the train into train and validation (for later purposes)
-
-from sklearn.model_selection import train_test_split
-
-train_X, val_X, train_Y, val_Y = train_test_split(train_datasetX, train_datasetY, test_size=0.2, random_state=13)
-
-print(train_X.shape)
-print(val_X.shape)
-print(test_X.shape)
-
-def prep_pixels(train_X, val_X, test_X, train_Y, val_Y, test_Y):
-  trainX = train_X.reshape(train_X.shape[0], img_rows, img_cols, 1)
-  valX = val_X.reshape(val_X.shape[0], img_rows, img_cols, 1)
-  testX = test_X.reshape(test_X.shape[0], img_rows, img_cols, 1)
-  trainY = train_Y
-  valY = val_Y
-  testY = test_Y
-	# convert from integers to floats
-  trainX = trainX.astype('float32')
-  valX = valX.astype('float32')
-  testX = testX.astype('float32')
-	# normalize to range 0-1
-  trainX = trainX / 255.0
-  valX = valX / 255.0
-  testX = testX / 255.0
-
-	# return normalized images
   return trainX, valX, testX, trainY, valY, testY
 
 """### **We have divided the train, test, and validation for this particular section. There are 10,000 photos for testing and 60,000 images for training in the dataset. Following the splitting, a validation set comprising 12,000 rows is produced. After that, the sets are formatted to make them easier to read. It measures 28 by 28.**"""
