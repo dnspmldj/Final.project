@@ -17,9 +17,6 @@ def import_and_predict(image_data, model):
     image_data = (image_data * 255).astype(np.uint8)
 
 
-    # Use ImageOps.fit with the Image instance
-    image = ImageOps.fit(image, size)
-
     img = np.asarray(image)
     img_reshape = img[np.newaxis, ...]
     prediction = model.predict(img_reshape)
