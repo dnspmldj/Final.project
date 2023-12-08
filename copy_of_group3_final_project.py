@@ -3,12 +3,11 @@ from PIL import Image, ImageOps
 import numpy as np
 import tensorflow as tf
 
-# Load the model outside the function to improve efficiency
-model = tf.keras.models.load_model('saved_fashion.h5')
-
-# Disable caching for the predict function due to TensorFlow operations
 @st.cache(allow_output_mutation=True, suppress_st_warning=True)
-def predict(image, model):
+def predict(image):
+    # Load the model inside the function to avoid caching issues
+    model = tf.keras.models.load_model('saved_fashion.h5')
+
     size = (64, 64)
     image = ImageOps.fit(image, size, Image.ANTIALIAS)
     img = np.asarray(image)
@@ -27,7 +26,7 @@ def main():
         st.image(image, use_column_width=True)
 
         # Predictions are not cached to prevent UserHashError
-        prediction = predict(image, model)
+        prediction = predict(image)
 
         class_names = ['Tshirt', 'Top', 'Pullover', 'Dress', 'Coat',
                        'Sandal', 'Shirt', 'Sneaker', 'Bag', 'Ankle Boot']
