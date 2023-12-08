@@ -21,8 +21,13 @@ def import_and_predict(image_data, model):
 def load_image(filename):
     img = Image.open(filename).resize((64, 64))
     img = img_to_array(img)
+    
+    # Check if the image is grayscale, if so, add a channel dimension
+    if len(img.shape) == 2:
+        img = np.expand_dims(img, axis=-1)
+    
     img = img / 255.0
-    img = np.reshape(img, (1, 64, 64, 3))
+    img = np.reshape(img, (1, 64, 64, img.shape[-1]))
     return img
 
 model = load_fashion_model()
