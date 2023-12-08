@@ -1,3 +1,4 @@
 streamlit
 !pip install --ignore-installed --upgrade tensorflow
 !pip show tensorflow
+tensorflow
