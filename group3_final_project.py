@@ -1,7 +1,4 @@
 import streamlit as st
-import time
-import sys
-import pandas as pd
 import tensorflow as tf
 
 @st.cache_resource
