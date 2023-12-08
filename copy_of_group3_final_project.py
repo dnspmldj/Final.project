@@ -47,8 +47,15 @@ else:
     image = Image.open(file)
     st.image(image, use_column_width=True)
 
-    prediction = import_and_predict( model)
-    
+    # Convert the image to a NumPy array
+    image_array = img_to_array(image)
+
+    # Normalize the image
+    image_array = image_array / 255.0
+
+    # Load the image into the model for prediction
+    prediction = import_and_predict(image_array, model)
+
     class_names = ['T-shirt', 'Top', 'Pullover', 'Dress', 'Coat', 'Sandal', 'Shirt', 'Sneaker', 'Bag', 'Ankle Boot']
 
     result_class = np.argmax(prediction)
