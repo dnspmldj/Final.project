@@ -47,7 +47,7 @@ else:
     image = Image.open(file)
     st.image(image, use_column_width=True)
 
-    prediction = import_and_predict(image_array, model)
+    prediction = import_and_predict( model)
     
     class_names = ['T-shirt', 'Top', 'Pullover', 'Dress', 'Coat', 'Sandal', 'Shirt', 'Sneaker', 'Bag', 'Ankle Boot']
 
