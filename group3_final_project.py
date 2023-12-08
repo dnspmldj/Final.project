@@ -2,10 +2,6 @@ import streamlit as st
 import tensorflow as tf
 
 
-
-@st.cache(allow_output_mutation=True)
-
-
 @st.cache_resource
 def load_model():
   model=tf.keras.models.load_model('saved_fashion.hdf5')
