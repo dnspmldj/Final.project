@@ -24,7 +24,8 @@ from google.colab import drive
 drive.mount('/content/drive')
 
 """## **IMPORTING MODULES:**"""
-
+import streamlit as st
+import tensorflow as tf
 import time
 import cv2
 from PIL import Image,ImageOps
@@ -65,7 +66,7 @@ def import_and_predict(image_data,model):
     prediction=model.predict(img_reshape)
     return prediction
 
-st.write("""# Fasion""")
+st.write("""# Fashion Dataset by group 3""")
 
 file=st.file_uploader("Choose clothes photo from computer",type=["jpg","png"])
 
