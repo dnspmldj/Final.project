@@ -6,7 +6,8 @@ import tensorflow as tf
 # Load the model outside the function to improve efficiency
 model = tf.keras.models.load_model('saved_fashion.h5')
 
-@st.cache(allow_output_mutation=True)
+# Disable caching for the predict function due to TensorFlow operations
+@st.cache(allow_output_mutation=True, suppress_st_warning=True)
 def predict(image, model):
     size = (64, 64)
     image = ImageOps.fit(image, size, Image.ANTIALIAS)
@@ -25,7 +26,7 @@ def main():
         image = Image.open(file)
         st.image(image, use_column_width=True)
 
-        # Predictions are cached to improve responsiveness
+        # Predictions are not cached to prevent UserHashError
         prediction = predict(image, model)
 
         class_names = ['Tshirt', 'Top', 'Pullover', 'Dress', 'Coat',
