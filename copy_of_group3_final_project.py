@@ -20,8 +20,6 @@ Original file is located at
 ### **CPE019/CPE32S1**
 """
 
-from google.colab import drive
-drive.mount('/content/drive')
 
 """## **IMPORTING MODULES:**"""
 import streamlit as st
