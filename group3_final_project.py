@@ -6,7 +6,7 @@ import tensorflow as tf
 # Load the model outside the function to improve efficiency
 model = tf.keras.models.load_model('saved_fashion.h5')
 
-@st.cache
+@st.cache(allow_output_mutation=True)
 def predict(image, model):
     size = (64, 64)
     image = ImageOps.fit(image, size, Image.ANTIALIAS)
