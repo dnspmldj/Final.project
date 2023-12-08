@@ -1,4 +1,4 @@
-pip install
+
 pip install tensorflow
 
 import streamlit as st
