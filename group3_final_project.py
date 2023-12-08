@@ -2,17 +2,15 @@ import streamlit as st
 import time
 import sys
 import pandas as pd
-from PIL import Image
+import tensorflow as tf
 
 @st.cache_resource
-
 def load_model():
-  model=tf.keras.models.load_model('saved_fashion.h5')
+  model=tf.keras.models.load_model('saved_fashion.hdf5')
   return model
-
 model = load_model()
 st.write("""# Fashion Dataset by Group 3""")
-file=st.file_uploader("Choose clothes photo from computer",type=["jpg","png"])
+file=st.file_uploader("Choose photo from computer",type=["jpg","png"])
 
 import cv2
 from PIL import Image,ImageOps
