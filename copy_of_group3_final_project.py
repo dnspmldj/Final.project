@@ -41,7 +41,7 @@ def load_image():
 
 model = load_fashion_model()
 
-st.write("""# Fashion Dataset by Group 3""")
+st.write("""# Fashion Dataset by Espiritu_Santos""")
 file = st.file_uploader("Choose photo from computer", type=["jpg", "png"])
 
 if file is None:
